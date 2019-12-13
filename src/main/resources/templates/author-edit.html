@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit author</title>
+</head>
+<body>
+
+    <form method="post" th:object="${authorData}">
+
+
+
+        <table>
+            <tr>
+                <td>First name:</td>
+                <td>
+                    <input type="text" th:field="*{firstName}"/>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('firstName')}" th:text="${err}" />
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td>
+                    <input type="text" th:field="*{lastName}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Nationality:</td>
+                <td>
+                    <input type="text" th:field="*{nationality}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Year of Birth:</td>
+                <td>
+                    <input type="number" th:field="*{yearOfBirth}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <button type="submit"> Submit</button>
+                </td>
+            </tr>
+
+
+        </table>
+
+    </form>
+
+</body>
+</html>
